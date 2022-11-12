@@ -1,0 +1,33 @@
+#include <stdio.h>// Linear Searching 
+
+void main()
+{   
+    // data type_Name[size];
+    int Array[5],i,num,flag=0;
+    for (i=0;i<=4;i++)
+    {
+    printf("\nEnter Element In Array=");
+    scanf("%d",&Array[i]);
+    }
+    printf("\nEnter Element Which You Have To Find=");
+    scanf("%d",&num);
+    for(i=0;i<=4;i++)
+    {
+    if (num==Array[i])
+    {
+        flag=1;
+    
+        break;
+    }
+    }
+    if(flag==1)
+    {
+        printf("\nElement Is Found In Array");
+        printf("\nIndex Of Element=%d",i);
+    }
+    else
+    {
+        printf("Element Is Not Found In Array");
+    }
+    
+}
