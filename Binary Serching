@@ -1,0 +1,78 @@
+#include <stdio.h>     //Binary Searching 
+
+void main()
+
+{ 
+
+    int size,Array[size],mid,low=0,high,flag=0,num;
+
+    printf("\nEnter The Size Of Array=");
+
+    scanf("%d",&size);
+
+    high=size-1;
+
+    printf("Enter Element In Array=\n");
+
+    for(int i=0;i<size;i++)
+
+    {
+
+        scanf("%d",&Array[i]);
+
+    }
+
+    printf("\nEnter Element Which You Have To Find=");
+
+    scanf("%d",&num);
+
+    for(mid=(low+high/2);low<=high;mid=(low+high)/2)
+
+    {
+
+        if(Array[mid]==num)
+
+        {
+
+            flag=1;
+
+            break;
+
+        }
+
+        if(Array[mid]>num)
+
+        {
+
+            high=mid-1;
+
+        }
+
+        else
+
+        {
+
+            low=mid+1;
+
+        }
+
+    }
+
+    if(flag==1)
+
+    {
+
+        printf("\nElement Is Present At A Index=%d",mid);
+
+    }
+
+    else
+
+    {
+
+       printf("\nElement Is Not Found");    
+
+    }
+
+}
+
