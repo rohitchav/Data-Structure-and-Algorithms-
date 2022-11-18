@@ -1,0 +1,51 @@
+#include <stdio.h>
+int Queue[5],rear=-1,front=-1;
+void Enqueue(int no);
+void Display();
+
+void main()
+{   int choice,number,element;
+    printf("\n!!.....Welcome In Queue Operation.....!!\n");
+    do{printf("\nMenu:-");
+    printf("\n1.Enqueue\n2.Dequeue\n3.Display");
+    printf("\nEnter Choice=");
+    scanf("%d",&choice);
+    switch(choice)
+    {  
+        case 1:
+        printf("\nEnter Element=");
+        scanf("%d",&element);
+        Enqueue(element);
+        break;
+        case 2:
+        front++;
+        break;
+        case 3:
+        Display();//call
+        break;
+        default:
+        printf("\nWrong Choice");
+    }
+    printf("\nPress 1 If You Want To Continue=");
+    scanf("%d",&number);
+    }while(number==1);
+
+}
+
+void Enqueue(int no)
+{    if(front==-1)
+     {
+         front++;
+     }
+    rear=rear+1;//rear=-1+1=0
+    Queue[rear]=no;
+    printf("\nElement Is Inserted");
+}
+void Display()//define
+{
+      for(int i=front;i<=rear;i++)
+      {
+          printf("\n%d",Queue[i]);
+      }
+}      
+       
