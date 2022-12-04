@@ -1,0 +1,207 @@
+#include <stdio.h>
+#include <stdlib.h>
+void insert();
+void display();
+void insertF();
+void DeleteF();
+void DeleteL();
+void insertR();
+void DeleteR();
+struct node
+{
+    int data;
+    struct node *next;
+};
+struct node *head=NULL;
+void main()
+{   
+    int ch,choice;
+    do
+    {printf("\n****Menu****\n");
+    printf("\n1.Insert From End\n2.Insert From Front\n3.Random Insertion\n4.Delete From Front\n5.Delete From Last\n6.Random Deletion\n7.Display\n8.Exit");
+    printf("\nEnter Your Choice=");
+    scanf("%d",&ch);
+    switch(ch)
+    {
+        case 1: 
+        insert();
+        break;
+        case 2:
+        insertF();
+        break;
+        case 3:
+        insertR();
+        break;
+        case 4:
+        DeleteF();
+        break;
+        case 5:
+        DeleteL();
+        break;
+        case 6:
+        DeleteR();
+        break;
+        case 7:
+        display();
+        break;
+        case 8:
+        exit(1);
+        break;
+        default:
+        printf("\nWrong Choice Entered");
+        
+    }
+    printf("\nIf You Want Continue Press 1-->");
+    scanf("%d",&choice);
+    }while(choice==1);
+}
+void insert()
+{
+    struct node *new,*temp;
+
+    new=(struct node*)malloc(sizeof(struct node));
+    int item;
+    printf("\nEnter Data=");
+    scanf("%d",&item);
+    if(new==NULL)
+    {
+        printf("\nOverflow");
+        exit(1);
+    }
+    else
+    {
+        new->data=item;
+        new->next=NULL;
+        if(head==NULL)
+        {
+            head=new;
+        }
+        else
+        {
+            temp=head;
+            while(temp->next!=NULL)
+            {
+                temp=temp->next;
+            }
+            temp->next=new;
+            
+        }
+        printf("\nNode Created Succesfuuly");
+    }
+}
+void display()
+{   
+    struct node *temp;
+    temp=head;
+    if(temp==NULL)
+    {
+        printf("\nNothing Anything For Pritnting..!!");
+    }
+    else
+    {
+        while(temp != NULL)
+        {
+    printf("\n%d",temp->data);
+         temp=temp->next;
+        }
+        
+    }
+}
+void insertF()
+{ 
+    struct node *new,*temp;
+
+    new=(struct node*)malloc(sizeof(struct node));
+    int item;
+    printf("\nEnter Data=");
+    scanf("%d",&item);
+    if(new==NULL)
+    {
+        printf("\nOverflow");
+        exit(1);
+    }
+    else
+    {
+        new->data=item;
+        new->next=NULL;
+        if(head==NULL)
+        {
+            head=new;
+        }
+        else
+        {  
+            new->next=head;
+            head=new;
+        }
+        printf("\nNode Created Succesfuuly");
+    }
+
+}
+void DeleteF()
+{   
+    struct node *temp;
+    if(head==NULL  || temp->next=NULL)
+    {
+        printf("\nList Is Empty");
+    }
+    else
+    {
+        temp=head;
+        head=temp->next;
+        free(temp);
+        printf("\nNode Deleted Succesfuuly");
+    }
+}
+void DeleteL()
+{
+    struct node *temp,*prev;
+    temp=head;
+    
+    if(head=NULL)
+    {
+        printf("\nLinklist Is Empty");
+    }
+    while(temp->next!=NULL)
+    {
+        prev=temp;
+        temp=temp->next;
+    }
+    prev->next=NULL;
+    free(temp);
+}
+void insertR()
+{    struct node *new,*temp;
+     new=(struct node*)malloc(sizeof(struct node));
+     temp=head;
+     int data_value,key; 
+     printf("\nEnter Node=");
+     scanf("%d",&data_value);
+     printf("\nEnter Node After You Insert=");
+     scanf("%d",&key);
+         while(temp->data!=key)
+         {
+             temp=temp->next;
+         }
+         new->data=data_value;
+         new->next=temp->next;
+         temp->next=new;
+}
+void DeleteR()
+{   
+    int key;
+    struct node *temp,*newnode;
+    printf("\nEnter Node Which You Want Delete-->");
+    scanf("%d",&key);
+    temp=head;
+    while(temp->data!=key)
+    {   
+        newnode=temp;
+        temp=temp->next;
+    }
+    if(temp->data==key)
+    {
+        newnode->next=temp->next;
+        free(temp);
+    }
+    printf("\nNode Delete Succesfuuly");
+}
