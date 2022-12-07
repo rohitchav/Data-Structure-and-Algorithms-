@@ -1,0 +1,194 @@
+#include <stdio.h>      //Stack Using Linklist
+
+#include <stdlib.h>
+
+void Push();
+
+void Pop();
+
+void Display();
+
+struct node
+
+{
+
+    int data;
+
+    struct node *next;
+
+};
+
+struct node *head=NULL;
+
+void main()
+
+{   int ch,choice;
+
+    printf("\n!!........Welcome In Stack Using Linklist........!!\n");
+
+    do{printf("\n**********Menu***********\n");
+
+    
+
+    printf("\n1.Push\n2.Pop\n3.Display");
+
+    printf("\n===========================================\n");
+
+    printf("\nEnter Your Choice=");
+
+    scanf("%d",&ch);
+
+    switch(ch)
+
+    {
+
+        case 1:
+
+        Push();
+
+        break;
+
+        case 2:
+
+        Pop();
+
+        break;
+
+        case 3:
+
+        Display();
+
+        break;
+
+        
+
+    }
+
+    printf("\nIf You Want To Continue Press 1-->");
+
+    scanf("%d",&choice);
+
+    }while(choice==1);
+
+}
+
+void Push()
+
+{ 
+
+   struct node *new,*temp;
+
+   int item;
+
+   new=(struct node*)malloc(sizeof(struct node));
+
+   printf("\nEnter Data-->");
+
+   scanf("%d",&item);
+
+   if(new==NULL)
+
+   {
+
+       printf("\nOverFlow");
+
+   }
+
+   else
+
+   {
+
+   temp=head;
+
+   new->data=item;
+
+   new->next=head;
+
+   head=new;
+
+   printf("\nElement Inserted Succesfully");
+
+   }
+
+}
+
+void Display()
+
+{   
+
+    struct node *new,*temp;
+
+    if(new==NULL)
+
+    {
+
+        ("\nOverFlow");
+
+    }
+
+    else
+
+    {
+
+        if(head==NULL)
+
+        {
+
+            printf("\nNo any element for printing");
+
+        }
+
+        else
+
+        {
+
+            temp=head;
+
+            while(temp!=NULL)
+
+            {
+
+              printf("\n%d",temp->data);
+
+              temp=temp->next;
+
+            }
+
+        }
+
+        
+
+    }
+
+}
+
+void Pop()
+
+{
+
+    struct node *temp,*new;
+
+    if(head==NULL)
+
+    {
+
+        printf("\nNo Element For Deletion");
+
+    }
+
+    else
+
+    {
+
+        temp=head;
+
+        head=temp->next;
+
+        free(temp);
+
+        printf("\nElement Delete Succesfully");
+
+    }
+
+}
+
